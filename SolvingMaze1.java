@@ -280,13 +280,17 @@ public class SolvingMaze1 implements IMazeSolver {
         temp.push(e);
         int sumOfCoord ; 
         int sumOfE = e.x + e.y;
+        int index_x = e.x ;
+        int index_y = e.y ;
         int path_len = 1 ;
         while(!index.isEmpty()) {
         e = (coordinate)index.pop();
         sumOfCoord = e.x + e.y ;
-        if(Math.abs(sumOfCoord-sumOfE) == 1) {
+        if(Math.abs(sumOfCoord-sumOfE) == 1&&( index_x==e.x||Math.abs(index_x-e.x) == 1)&&(index_y==e.y||Math.abs(index_y-e.y) == 1)) {
         	temp.push(e);
         	sumOfE = sumOfCoord ;
+        	index_x = e.x ;
+        	index_y = e.y ;
         	++path_len ;
         	
         }
